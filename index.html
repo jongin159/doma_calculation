@@ -1,0 +1,198 @@
+<html lang="ko">
+    <head>
+        <style>
+            .container {display: flex}
+            .margin_auto {margin: auto;}
+            .colorselect {width: 10%}
+            .size {width: 10%}
+            .length_width_Box {display: flex; align-items: center;}
+            .border_none {border:none}
+            .hide {visibility: hidden;}
+        </style>
+        <script>
+            function calculate() {
+                var length = document.getElementById('length');
+                var width = document.getElementById('width');
+                var output = document.getElementById('output');
+                var output2 = document.getElementById('output2');
+                var output3 = document.getElementById('output3');
+                var color = document.getElementById('color');
+                var option = document.getElementById('option');
+                var cnt = document.getElementById('cnt')
+                var subtract = document.getElementById('subtract');
+                var add = document.getElementById('add');
+
+                if (eval(length.value) < 100 || eval(length.value) > 2400){
+                    return
+                }
+                if (eval(width.value) < 30 || eval(width.value) > 1200){
+                    return
+                }
+
+                if (color.options[color.selectedIndex].text == "백색"){
+                    option.value = "백색" + "/폭" + width.value + "mmx길이" + length.value + "mm"
+                    output.value = Math.round(eval(length.value) * eval(width.value) * 0.1863) + "원"
+                    output2.value = output.value
+                    output3.value = Math.floor(eval(length.value) * eval(width.value) * 0.1863 / 1000) + "개"
+                    cnt.value = 1
+                    output.style.visibility = "visible"
+                    output2.style.visibility = "visible"
+                    output3.style.visibility = "visible"
+                    subtract.style.visibility = "visible"
+                    cnt.style.visibility = "visible"
+                    add.style.visibility = "visible"
+                    option.style.visibility = "visible"
+                }
+                else if (color.options[color.selectedIndex].text == "적색"){
+                    option.value = "적색" + "/폭" + width.value + "mmx길이" + length.value + "mm"
+                    output.value = Math.round(eval(length.value) * eval(width.value) * 0.177606) + "원"
+                    output2.value = output.value
+                    output3.value = Math.floor(eval(length.value) * eval(width.value) * 0.1863 / 1000) + "개"
+                    cnt.value = 1
+                    output.style.visibility = "visible"
+                    output2.style.visibility = "visible"
+                    output3.style.visibility = "visible"
+                    subtract.style.visibility = "visible"
+                    cnt.style.visibility = "visible"
+                    add.style.visibility = "visible"
+                    option.style.visibility = "visible"
+                }  
+
+                
+            }
+
+            function add() {
+                var cnt = document.getElementById('cnt');
+                cnt.value = eval(cnt.value) + 1
+                output.value = Math.round(eval(output.value.slice(0, -1)) * (eval(cnt.value) / (eval(cnt.value) - 1))) + "원"
+                output2.value = output.value
+                output3.value = Math.floor(output2.value.slice(0,-1) / 1000) + "개"
+            }
+
+            function subtract() {
+                var cnt = document.getElementById('cnt');
+                if (eval(cnt.value) > 1){
+                    cnt.value = eval(cnt.value) - 1
+                    output.value = Math.round(eval(output.value.slice(0, -1)) * (eval(cnt.value) / (eval(cnt.value) + 1))) + "원"
+                    output2.value = output.value
+                    output3.value = Math.floor(output2.value.slice(0,-1) / 1000) + "개"
+                }
+                
+            }
+
+            function hide() {
+                var output = document.getElementById('output');
+                var output2 = document.getElementById('output2');
+                var output3 = document.getElementById('output3');
+                var subtract = document.getElementById('subtract');
+                var cnt = document.getElementById('cnt');
+                var add = document.getElementById('add');
+                var option = document.getElementById('option');
+
+                output.style.visibility = "hidden"
+                output2.style.visibility = "hidden"
+                output3.style.visibility = "hidden"
+                subtract.style.visibility = "hidden"
+                cnt.style.visibility = "hidden"
+                add.style.visibility = "hidden"
+                option.style.visibility = "hidden"
+            }
+        </script>
+    </head>
+    <body>
+        <!-- 1번 텍스트 -->
+        <div class="container margin_auto">
+            <p>&#9312; 도마 사이즈를 입력하고 담기를 눌러주세요</p>
+        </div>
+        <!-- 칼라 선택, 사이즈, 견적내기 영역-->
+        <div>
+            <!-- 칼라선택 row -->
+            <div class="container">
+                <!-- 칼라 선택 text -->
+                <span class="colorselect">칼라선택</span>
+                <!-- 칼라 선택 select box -->
+                <select id="color" >
+                    <option value="none">선택하세요</option>
+                    <option value="white">백색</option>
+                    <option value="red">적색</option>
+                </select>
+            </div>
+            <!-- 사이즈 row -->
+            <div class="container">
+                <!-- 사이즈 text -->
+                <span class="size">사이즈</span>
+                <!-- 길이, 폭 영역 -->
+                <span class="length_width_Box">
+                    <!-- 길이 영역 -->
+                    <span>
+                        <!-- 길이 text & input box & mm text-->
+                        <div>
+                            <span>길이</span>
+                            <input type="text" id="length">
+                            <span>mm</span>
+                        </div>
+                        <!-- 하단 text -->
+                        <div>
+                            <span>길이는 100~2400mm 까지 입력할 수 있습니다.</span>
+                        </div>
+                    </span>
+                    <!-- 폭 영역 -->
+                    <span>
+                        <!-- 폭 text & input box & mm text -->
+                        <div>
+                            <span>폭</span>
+                            <input type="text" id="width">
+                            <span>mm</span>
+                        </div>
+                        <!-- 하단 text -->
+                        <div>
+                            <span>폭은 30~1200mm 까지 입력할 수 있습니다.</span>
+                        </div>
+                    </span>
+                <!-- 길이, 폭 영역 마지막-->   
+                </span>
+                <!-- 사이즈 row 마지막-->
+            </div>
+            <!-- 견적내기 버튼 -->
+            <div>
+                <input type='button' value='견적내기' onclick="calculate()">
+            </div>
+        </div>
+        
+        <!-- 2번 텍스트 -->
+        <div class="container margin_auto">
+            <p>&#9313; 아래 견적을 복사하신후 구매하기 버튼위 옵션창에 붙혀넣기와 수량을 입력해주세요</p>
+        </div>
+        <!-- 그 아래 영역 -->
+        <div>
+            <span>
+                <input type="text" id="option" class="border_none hide">
+            </span>
+            <span>
+                <span><input type='button' value='-' class="hide" onclick="subtract()" id="subtract"></span>
+                <span><input type="text" id="cnt" value="1" class="border_none hide"></span>
+                <span><input type='button' value='+' class="hide" onclick="add()" id="add"></span>
+            </span>
+            <span>
+                <input type="text" id="output" class="border_none hide">
+            </span>
+            <span>
+                <span><input type='button' value='x' class="border_none" onclick="hide()"></span>
+            </span>
+            
+            
+        </div>
+        <!-- 총 금액 영역 -->
+        <div>
+            <span>총금액</span>
+            <span>(무료배송)</span>
+            <span>+</span>
+            <span><input type="text" id="output2" class="border_none hide"></span>
+        </div>
+        <!-- 천원단위 결제 수량 영역 -->
+        <div>
+            <span>천원단위 결제 수량</span>
+            <span><input type="text" id="output3" class="border_none hide"></span>
+        </div>
+    </body>
+</html>
