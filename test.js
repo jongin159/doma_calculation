@@ -66,7 +66,7 @@ function calculate() {
 function add() {
     var cnt = document.getElementById('cnt');
     cnt.value = eval(cnt.value) + 1
-    var int_output = Math.round(eval(self.stringNumberToInt(output.value.slice(0, -1))) * (eval(cnt.value) / (eval(cnt.value) - 1)))
+    var int_output = Math.round(eval(output.value.slice(0, -1).replace(/,/g , '')) * (eval(cnt.value) / (eval(cnt.value) - 1)))
     var str_output = int_output.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + "원";
     output.value = str_output
     output2.value = output.value
@@ -77,7 +77,7 @@ function subtract() {
     var cnt = document.getElementById('cnt');
     if (eval(cnt.value) > 1){
         cnt.value = eval(cnt.value) - 1
-        var int_output = Math.round(eval(self.stringNumberToInt(output.value.slice(0, -1))) * (eval(cnt.value) / (eval(cnt.value) + 1)))
+        var int_output = Math.round(eval(output.value.slice(0, -1).replace(/,/g , '')) * (eval(cnt.value) / (eval(cnt.value) + 1)))
         var str_output = int_output.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + "원";
         output.value = str_output
     
