@@ -130,7 +130,8 @@ function calculate() {
                 cnt.value = eval(cnt.value) + 1;
                 var int_output = Math.round(eval(output.value.slice(0, -1).replace(/,/g , '')) * (eval(cnt.value) / (eval(cnt.value) - 1)));
                 // var str_output = int_output.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + "원";
-                var str_output = int_output.toString();
+                var str_output = insertCommas(int_output).toString() + "원";
+                // var str_output = int_output.toString();
                 output.value = str_output;
                 output2.value = output.value;
                 output3.value = Math.floor(int_output / 1000) + "개";
@@ -142,7 +143,8 @@ function calculate() {
                     cnt.value = eval(cnt.value) - 1;
                     var int_output = Math.round(eval(output.value.slice(0, -1).replace(/,/g , '')) * (eval(cnt.value) / (eval(cnt.value) + 1)));
                     // var str_output = int_output.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + "원";
-                    var str_output = int_output.toString();
+                    // var str_output = int_output.toString();
+                    var str_output = insertCommas(int_output).toString() + "원";
                     output.value = str_output;
                 
                     output2.value = output.value;
@@ -180,7 +182,7 @@ function calculate() {
         <div class="total_area">
             <!-- 1번 텍스트 -->
             <div class="container margin_auto">
-                <p class="numtext">&#9312; 도마 사이즈를 입력하고 견적내기를 눌러주세요12</p>
+                <p class="numtext">&#9312; 도마 사이즈를 입력하고 견적내기를 눌러주세요13</p>
             </div>
             <!-- 칼라 선택, 사이즈, 견적내기 영역-->
             <div class="main_area">
