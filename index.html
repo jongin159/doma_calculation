@@ -70,8 +70,8 @@ function calculate() {
             
                 if (color.options[color.selectedIndex].text == "백색"){
                     option.value = "백색" + "/폭" + width.value + "mmx길이" + length.value + "mm"
-                    // output.value = insertCommas(Math.round(eval(length.value) * eval(width.value) * 0.1863)).toString() + "원"
-                    output.value = Math.round(eval(length.value) * eval(width.value) * 0.1863).toString() + "원"
+                    output.value = insertCommas(Math.round(eval(length.value) * eval(width.value) * 0.1863)).toString() + "원"
+                    // output.value = Math.round(eval(length.value) * eval(width.value) * 0.1863).toString() + "원"
                     output2.value = output.value
                     output3.value = Math.floor(eval(length.value) * eval(width.value) * 0.1863 / 1000) + "개"
                     cnt.value = 1
@@ -88,8 +88,8 @@ function calculate() {
                 }
                 else if (color.options[color.selectedIndex].text == "적색"){
                     option.value = "적색" + "/폭" + width.value + "mmx길이" + length.value + "mm"
-                    // output.value = insertCommas(Math.round(eval(length.value) * eval(width.value) * 0.177606)).toString() + "원"
-                    output.value = Math.round(eval(length.value) * eval(width.value) * 0.177606).toString() + "원"
+                    output.value = insertCommas(Math.round(eval(length.value) * eval(width.value) * 0.177606)).toString() + "원"
+                    // output.value = Math.round(eval(length.value) * eval(width.value) * 0.177606).toString() + "원"
                     output2.value = output.value
                     output3.value = Math.floor(eval(length.value) * eval(width.value) * 0.177606 / 1000) + "개"
                     cnt.value = 1
@@ -180,7 +180,7 @@ function calculate() {
         <div class="total_area">
             <!-- 1번 텍스트 -->
             <div class="container margin_auto">
-                <p class="numtext">&#9312; 도마 사이즈를 입력하고 견적내기를 눌러주세요11</p>
+                <p class="numtext">&#9312; 도마 사이즈를 입력하고 견적내기를 눌러주세요12</p>
             </div>
             <!-- 칼라 선택, 사이즈, 견적내기 영역-->
             <div class="main_area">
