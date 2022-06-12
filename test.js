@@ -23,7 +23,8 @@ function calculate() {
 
     if (color.options[color.selectedIndex].text == "백색"){
         option.value = "백색" + "/폭" + width.value + "mmx길이" + length.value + "mm"
-        output.value = insertCommas(Math.round(eval(length.value) * eval(width.value) * 0.1863)).toString() + "원"
+        // output.value = insertCommas(Math.round(eval(length.value) * eval(width.value) * 0.1863)).toString() + "원"
+        output.value = Math.round(eval(length.value) * eval(width.value) * 0.1863).toString() + "원"
         output2.value = output.value
         output3.value = Math.floor(eval(length.value) * eval(width.value) * 0.1863 / 1000) + "개"
         cnt.value = 1
@@ -40,7 +41,8 @@ function calculate() {
     }
     else if (color.options[color.selectedIndex].text == "적색"){
         option.value = "적색" + "/폭" + width.value + "mmx길이" + length.value + "mm"
-        output.value = insertCommas(Math.round(eval(length.value) * eval(width.value) * 0.177606)).toString() + "원"
+        // output.value = insertCommas(Math.round(eval(length.value) * eval(width.value) * 0.177606)).toString() + "원"
+        output.value = Math.round(eval(length.value) * eval(width.value) * 0.177606).toString() + "원"
         output2.value = output.value
         output3.value = Math.floor(eval(length.value) * eval(width.value) * 0.177606 / 1000) + "개"
         cnt.value = 1
