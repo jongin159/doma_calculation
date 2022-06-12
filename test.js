@@ -23,7 +23,7 @@ function calculate() {
 
     if (color.options[color.selectedIndex].text == "백색"){
         option.value = "백색" + "/폭" + width.value + "mmx길이" + length.value + "mm"
-        output.value = Math.round(eval(length.value) * eval(width.value) * 0.1863) + "원"
+        output.value = Math.round(eval(length.value) * eval(width.value) * 0.1863).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "원"
         output2.value = output.value
         output3.value = Math.floor(eval(length.value) * eval(width.value) * 0.1863 / 1000) + "개"
         cnt.value = 1
@@ -40,7 +40,7 @@ function calculate() {
     }
     else if (color.options[color.selectedIndex].text == "적색"){
         option.value = "적색" + "/폭" + width.value + "mmx길이" + length.value + "mm"
-        output.value = Math.round(eval(length.value) * eval(width.value) * 0.177606) + "원"
+        output.value = Math.round(eval(length.value) * eval(width.value) * 0.177606).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "원"
         output2.value = output.value
         output3.value = Math.floor(eval(length.value) * eval(width.value) * 0.177606 / 1000) + "개"
         cnt.value = 1
@@ -63,8 +63,8 @@ function add() {
     var cnt = document.getElementById('cnt');
     cnt.value = eval(cnt.value) + 1;
     var int_output = Math.round(eval(output.value.slice(0, -1).replace(/,/g , '')) * (eval(cnt.value) / (eval(cnt.value) - 1)));
-    // var str_output = int_output.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + "원";
-    var str_output = int_output.toString();
+    var str_output = int_output.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + "원";
+    // var str_output = int_output.toString();
     output.value = str_output;
     output2.value = output.value;
     output3.value = Math.floor(int_output / 1000) + "개";
@@ -75,8 +75,8 @@ function subtract() {
     if (eval(cnt.value) > 1){
         cnt.value = eval(cnt.value) - 1;
         var int_output = Math.round(eval(output.value.slice(0, -1).replace(/,/g , '')) * (eval(cnt.value) / (eval(cnt.value) + 1)));
-        // var str_output = int_output.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + "원";
-        var str_output = int_output.toString();
+        var str_output = int_output.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + "원";
+        // var str_output = int_output.toString();
         output.value = str_output;
     
         output2.value = output.value;
