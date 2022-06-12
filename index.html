@@ -45,9 +45,7 @@
             
         </style>
         <script>
-            function stringNumberToInt(stringNumber){
-                return parseInt(stringNumber.replace(/,/g , ''));
-            }
+
 
             function calculate() {
                 
@@ -173,6 +171,10 @@
                 
                 freeship.style.visibility = "hidden"
                 plus.style.visibility = "hidden"
+            }
+
+            function stringNumberToInt(stringNumber){
+                return parseInt(stringNumber.replace(/,/g , ''));
             }
         </script>
     </head>
