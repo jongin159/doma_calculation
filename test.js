@@ -23,7 +23,7 @@ function calculate() {
 
     if (color.options[color.selectedIndex].text == "백색"){
         option.value = "백색" + "/폭" + width.value + "mmx길이" + length.value + "mm"
-        output.value = Math.round(eval(length.value) * eval(width.value) * 0.1863).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "원"
+        output.value = insertCommas(Math.round(eval(length.value) * eval(width.value) * 0.1863)).toString() + "원"
         output2.value = output.value
         output3.value = Math.floor(eval(length.value) * eval(width.value) * 0.1863 / 1000) + "개"
         cnt.value = 1
@@ -40,7 +40,7 @@ function calculate() {
     }
     else if (color.options[color.selectedIndex].text == "적색"){
         option.value = "적색" + "/폭" + width.value + "mmx길이" + length.value + "mm"
-        output.value = Math.round(eval(length.value) * eval(width.value) * 0.177606).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "원"
+        output.value = insertCommas(Math.round(eval(length.value) * eval(width.value) * 0.177606)).toString() + "원"
         output2.value = output.value
         output3.value = Math.floor(eval(length.value) * eval(width.value) * 0.177606 / 1000) + "개"
         cnt.value = 1
@@ -58,6 +58,23 @@ function calculate() {
 
     
 }
+
+function insertCommas(n) {
+    // get stuff before the dot
+    let s1 = n.toString();
+    var d = s1.indexOf('.');
+    var s2 = d === -1 ? s1 : s1.slice(0, d);
+  
+    // insert commas every 3 digits from the right
+    for (var i = s2.length - 3; i > 0; i -= 3)
+      s2 = s2.slice(0, i) + ',' + s2.slice(i);
+  
+    // append fractional part
+    if (d !== -1)
+      s2 += s1.slice(d);
+  
+    return s2;
+  }
 
 function add() {
     var cnt = document.getElementById('cnt');
