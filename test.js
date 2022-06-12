@@ -110,8 +110,3 @@ function hide() {
     freeship.style.visibility = "hidden"
     plus.style.visibility = "hidden"
 }
-
-
-function stringNumberToInt(stringNumber){
-    return stringNumber.replace(/,/g , '')
-}
