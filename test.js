@@ -27,7 +27,7 @@ function calculate() {
     var plus = document.getElementById('plus');
     
 
-    output3.value = "7"
+    output3.value = "8"
 
     if (eval(length.value) < 100 || eval(length.value) > 2400){
         return
