@@ -1,49 +1,81 @@
 <html lang="ko">
     <head>
         <style>
+            @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
             .container {display: flex;}
             .margin_auto {margin: auto;}
             .colorselect {width: 10%; font-size:1.1em; margin:10px;}
             .size {width: 10%; font-size:1.1em; margin:10px; padding-top:5px;}
-            .length_width_Box {display: flex; }
+            .length_width_Box {display: flex; width:100%;}
             .border_none {border:none}
             .hide {visibility: hidden;}
-            .numtext {font-size:1.5em; padding: 5px;}
-            .main_area {background-color: rgb(226, 225, 219); margin:auto; padding:20px;}
-            .second_area {background-color: rgb(226, 225, 219); margin:auto; padding:20px; padding-bottom: 50px;}
+            .numtext {font-size:20px; padding: 5px;}
+            .main_area {background-color: rgb(238, 238, 238); margin:auto; padding:20px;}
+            .second_area {background-color: rgb(238, 238, 238); margin:auto; padding:20px; padding-bottom: 50px;}
             .selectbox {width:100%; margin: auto; height:30px; border: 1px solid rgb(184, 4, 4);}
             .opt{padding: 10px; text-align: center;}
             .length {margin-top:8px;}
-            .inputbox {height: 30px; width:300px; border: 1px solid rgb(184, 4, 4); margin-left:5px; text-align: right;}
-            .length_wrap {width:auto;}
-            .width_wrap {width:auto; margin-left: 20px;}
+            .inputbox {height: 30px; border: 1px solid rgb(184, 4, 4); margin-left:5px; text-align: right; width:80%;}
+            .length_wrap {float:left; width:50%}
+            .width_wrap {float:right; width:50%}
             .small_text {font-size:small; opacity: 0.5; padding: 10px;}
             .calculate {display: flex;
             flex-direction: column; height:50px; margin-top: 20px; justify-content: center; padding-left: 30%; padding-bottom: 10px; padding-top: 10px;} 
-            .cal_btn {height: 100%; background-color: rgb(16, 156, 16); width:50%; border: 0px; border-radius: 5px; color: white; font-size: 1em;}
+            .cal_btn {height: 100%; background-color: rgb(3, 199, 91); width:50%; border: 0px; border-radius: 5px; color: white; font-size: 1em;}
             .margin_between {margin-top:40px;}
-            .price_info {background-color: rgb(241, 241, 241); height:40px; padding: 10px;}
-            .output_opt {background-color: rgb(241, 241, 241); font-size: 1em; font-family:'nanumgothic', 'serif'; width:60%}
-            .pi1 {width:70%; float: left;}
-            .btn_set {margin:0; padding:0; width:10%;}
-            .ctn_num {width:30px; text-align: center; background-color: rgb(241, 241, 241); font-family:'nanumgothic', 'serif';}
-            .btn_price_x {float:right;}
-            .output_class {text-align: right; background-color: rgb(241, 241, 241);font-family:'nanumgothic', 'serif';}
-            body {font-family:'nanumgothic', 'serif';}
+            .price_info {background-color: rgb(241, 241, 241); height:40px; padding: 10px; border: 1px solid darkgray;}
+            .output_opt {background-color: rgb(241, 241, 241); font-size: 1em; font-family: 'NanumSquare', sans-serif; width:60%; height:100%;}
+            .pi1 {width:50%; float: left; height:100%;}
+            .btn_set {margin:0; padding:0; width:10%; height:100%;}
+            .ctn_num {width:30px; text-align: center; background-color: rgb(241, 241, 241); font-family: 'NanumSquare', sans-serif;}
+            .btn_price_x {float:right; height:100%; padding-top: 10px; }
+            .output_class {text-align: right; background-color: rgb(241, 241, 241);font-family: 'NanumSquare', sans-serif;}
+            .cnt_btn {height:100%;}
+            .total_price {background-color: rgb(79, 90, 112); color: white; padding: 20px; height:30px;}
+            .total_price1 {font-size: 20px; float:left;}
+            .total_price2 {font-size: 20px; float:right;}
+            .output3 {background-color: rgb(79, 90, 112); color: white; font-size: 20px; font-family: 'NanumSquare', sans-serif; width: 120px; text-align: right;}
+            .unit {background-color: rgb(33, 44, 64); color: white; padding: 20px; height:30px;}
+            .unit1 {font-size: 20px; float:left;}
+            .unit2 {font-size: 20px; float:right;}
+            .unit3 {text-align: right; background-color: rgb(33, 44, 64); color: white;font-size: 20px; font-family: 'NanumSquare', sans-serif;}
+            .total_area {width: 860px; border:2px dashed; padding:5px; margin: 0 auto;}
+            .pok {padding-left: 10px;}
+            body {font-family: 'NanumSquare', sans-serif;}
             
         </style>
         <script>
+            function stringNumberToInt(stringNumber){
+                return parseInt(stringNumber.replace(/,/g , ''));
+            }
+
             function calculate() {
+                
                 var length = document.getElementById('length');
+                
                 var width = document.getElementById('width');
+                
                 var output = document.getElementById('output');
+                
                 var output2 = document.getElementById('output2');
                 var output3 = document.getElementById('output3');
+                output3.value = "0"
                 var color = document.getElementById('color');
+                output3.value = "1"
                 var option = document.getElementById('option');
+                output3.value = "2"
                 var cnt = document.getElementById('cnt')
+                output3.value = "3"
                 var subtract = document.getElementById('subtract');
+                output3.value = "4"
                 var add = document.getElementById('add');
+                output3.value = "5"
+                var freeship = document.getElementById('freeship');
+                output3.value = "6"
+                var plus = document.getElementById('plus');
+                
+
+                output3.value = "7"
 
                 if (eval(length.value) < 100 || eval(length.value) > 2400){
                     return
@@ -54,7 +86,9 @@
 
                 if (color.options[color.selectedIndex].text == "백색"){
                     option.value = "백색" + "/폭" + width.value + "mmx길이" + length.value + "mm"
-                    output.value = Math.round(eval(length.value) * eval(width.value) * 0.1863) + "원"
+                    var int_output = Math.round(eval(length.value) * eval(width.value) * 0.1863)
+                    var comma_output = int_output.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+                    output.value = comma_output + "원"
                     output2.value = output.value
                     output3.value = Math.floor(eval(length.value) * eval(width.value) * 0.1863 / 1000) + "개"
                     cnt.value = 1
@@ -65,12 +99,17 @@
                     cnt.style.visibility = "visible"
                     add.style.visibility = "visible"
                     option.style.visibility = "visible"
+                    
+                    freeship.style.visibility = "visible"
+                    plus.style.visibility = "visible"
                 }
                 else if (color.options[color.selectedIndex].text == "적색"){
                     option.value = "적색" + "/폭" + width.value + "mmx길이" + length.value + "mm"
-                    output.value = Math.round(eval(length.value) * eval(width.value) * 0.177606) + "원"
+                    var int_output = Math.round(eval(length.value) * eval(width.value) * 0.177606)
+                    var comma_output = int_output.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+                    output.value = comma_output + "원"
                     output2.value = output.value
-                    output3.value = Math.floor(eval(length.value) * eval(width.value) * 0.1863 / 1000) + "개"
+                    output3.value = Math.floor(eval(length.value) * eval(width.value) * 0.177606 / 1000) + "개"
                     cnt.value = 1
                     output.style.visibility = "visible"
                     output2.style.visibility = "visible"
@@ -79,6 +118,9 @@
                     cnt.style.visibility = "visible"
                     add.style.visibility = "visible"
                     option.style.visibility = "visible"
+                    
+                    freeship.style.visibility = "visible"
+                    plus.style.visibility = "visible"
                 }  
 
                 
@@ -87,18 +129,23 @@
             function add() {
                 var cnt = document.getElementById('cnt');
                 cnt.value = eval(cnt.value) + 1
-                output.value = Math.round(eval(output.value.slice(0, -1)) * (eval(cnt.value) / (eval(cnt.value) - 1))) + "원"
+                var int_output = Math.round(eval(stringNumberToInt(output.value.slice(0, -1))) * (eval(cnt.value) / (eval(cnt.value) - 1)))
+                var str_output = int_output.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + "원";
+                output.value = str_output
                 output2.value = output.value
-                output3.value = Math.floor(output2.value.slice(0,-1) / 1000) + "개"
+                output3.value = Math.floor(int_output / 1000) + "개"
             }
 
             function subtract() {
                 var cnt = document.getElementById('cnt');
                 if (eval(cnt.value) > 1){
                     cnt.value = eval(cnt.value) - 1
-                    output.value = Math.round(eval(output.value.slice(0, -1)) * (eval(cnt.value) / (eval(cnt.value) + 1))) + "원"
+                    var int_output = Math.round(eval(stringNumberToInt(output.value.slice(0, -1))) * (eval(cnt.value) / (eval(cnt.value) + 1)))
+                    var str_output = int_output.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + "원";
+                    output.value = str_output
+                
                     output2.value = output.value
-                    output3.value = Math.floor(output2.value.slice(0,-1) / 1000) + "개"
+                    output3.value = Math.floor(int_output / 1000) + "개"
                 }
                 
             }
@@ -112,6 +159,9 @@
                 var add = document.getElementById('add');
                 var option = document.getElementById('option');
 
+                var freeship = document.getElementById('freeship');
+                var plus = document.getElementById('plus');
+
                 output.style.visibility = "hidden"
                 output2.style.visibility = "hidden"
                 output3.style.visibility = "hidden"
@@ -119,109 +169,117 @@
                 cnt.style.visibility = "hidden"
                 add.style.visibility = "hidden"
                 option.style.visibility = "hidden"
+                
+                freeship.style.visibility = "hidden"
+                plus.style.visibility = "hidden"
             }
         </script>
     </head>
     <body>
-        <!-- 1번 텍스트 -->
-        <div class="container margin_auto">
-            <p class="numtext"><strong>&#9312; 도마 사이즈를 입력하고 담기를 눌러주세요</strong></p>
-        </div>
-        <!-- 칼라 선택, 사이즈, 견적내기 영역-->
-        <div class="main_area">
-            <!-- 칼라선택 row -->
-            <div class="container">
-                <!-- 칼라 선택 text -->
-                <span class="colorselect"><strong>칼라선택</strong></span>
-                <!-- 칼라 선택 select box -->
-                <select id="color" class="selectbox">
-                    <option value="none" class="opt">선택하세요</option>
-                    <option value="white" class="opt">백색</option>
-                    <option value="red" class="opt">적색</option>
-                </select>
+        <div class="total_area">
+            <!-- 1번 텍스트 -->
+            <div class="container margin_auto">
+                <p class="numtext">&#9312; 도마 사이즈를 입력하고 견적내기를 눌러주세요</p>
             </div>
-            <!-- 사이즈 row -->
-            <div class="container">
-                <!-- 사이즈 text -->
-                <span class="size"><strong>사이즈</strong></span>
-                <!-- 길이, 폭 영역 -->
-                <span class="length_width_Box">
-                    <!-- 길이 영역 -->
-                    <span class="length_wrap">
-                        <!-- 길이 text & input box & mm text-->
-                        <div class="length">
-                            <span>길이</span>
-                            <input type="text" id="length" class="inputbox">
-                            <span>mm</span>
+            <!-- 칼라 선택, 사이즈, 견적내기 영역-->
+            <div class="main_area">
+                <!-- 칼라선택 row -->
+                <div class="container">
+                    <!-- 칼라 선택 text -->
+                    <span class="colorselect">칼라선택</span>
+                    <!-- 칼라 선택 select box -->
+                    <select id="color" class="selectbox">
+                        <option value="none" class="opt">선택하세요</option>
+                        <option value="white" class="opt">백색</option>
+                        <option value="red" class="opt">적색</option>
+                    </select>
+                </div>
+                <!-- 사이즈 row -->
+                <div class="container">
+                    <!-- 사이즈 text -->
+                    <span class="size">사이즈</span>
+                    <!-- 길이, 폭 영역 -->
+                    <span class="length_width_Box">
+                        <!-- 길이 영역 -->
+                        <div class="length_wrap">
+                            <!-- 길이 text & input box & mm text-->
+                            <div class="length">
+                                <span>길이</span>
+                                <input type="text" id="length" class="inputbox">
+                                <span>mm</span>
+                            </div>
+                            <!-- 하단 text -->
+                            <div class="small_text">
+                                <span>길이는 100~2400mm 까지 입력할 수 있습니다.</span>
+                            </div>
                         </div>
-                        <!-- 하단 text -->
-                        <div class="small_text">
-                            <span>길이는 100~2400mm 까지 입력할 수 있습니다.</span>
+                        <!-- 폭 영역 -->
+                        <div class="width_wrap">
+                            <!-- 폭 text & input box & mm text -->
+                            <div class="length pok">
+                                <span>폭</span>
+                                <input type="text" id="width" class="inputbox">
+                                <span>mm</span>
+                            </div>
+                            <!-- 하단 text -->
+                            <div class="small_text">
+                                <span>폭은 30~1200mm 까지 입력할 수 있습니다.</span>
+                            </div>
                         </div>
+                    <!-- 길이, 폭 영역 마지막-->   
                     </span>
-                    <!-- 폭 영역 -->
-                    <span class="width_wrap">
-                        <!-- 폭 text & input box & mm text -->
-                        <div class="length">
-                            <span>폭</span>
-                            <input type="text" id="width" class="inputbox">
-                            <span>mm</span>
-                        </div>
-                        <!-- 하단 text -->
-                        <div class="small_text">
-                            <span>폭은 30~1200mm 까지 입력할 수 있습니다.</span>
-                        </div>
+                    <!-- 사이즈 row 마지막-->
+                </div>
+                <!-- 견적내기 버튼 -->
+                <div class="calculate">
+                    <input type='button' value='견적내기' onclick="calculate()" class="cal_btn">
+                </div>
+            </div>
+
+            <!-- 2번 텍스트 -->
+            <div class="container margin_auto margin_between">
+                <p class="numtext">&#9313; 아래 견적을 복사하신후 ▶ 구매하기 버튼위 옵션창에 <strong><U>붙혀넣기</U></strong>와 <strong><U>수량</U></strong>을 입력해주세요</p>
+            </div>
+            <!-- 그 아래 영역 -->
+            <div class="second_area">
+                <div class="price_info">
+                    <span class="pi1">
+                        <input type="text" id="option" class="border_none hide output_opt">
                     </span>
-                <!-- 길이, 폭 영역 마지막-->   
+                    <span class="btn_price_x">
+                        <span class="btn_set">
+                            <span><input type='button' value='-' class="hide" onclick="subtract()" id="subtract"></span>
+                            <span><input type="text" id="cnt" value="1" class="border_none hide ctn_num"></span>
+                            <span><input type='button' value='+' class="hide" onclick="add()" id="add"></span>
+                        </span>
+                        <span>
+                            <input type="text" id="output" class="border_none hide output_class">
+                        </span>
+                        <span>
+                            <span><input type='button' value='x' class="border_none" onclick="hide()"></span>
+                        </span>
+                    </span>
+                    
+                </div>
+            
+    
+                
+            </div>
+            <!-- 총 금액 영역 -->
+            <div class="total_price">
+                <span class="total_price1">총금액</span>
+                <span class="total_price2">
+                    <span class="hide" id="freeship">(무료배송)</span>
+                    <span class="hide" id="plus">&nbsp;+</span>
+                    <span><input type="text" id="output2" class="border_none hide output3"></span>
                 </span>
-                <!-- 사이즈 row 마지막-->
             </div>
-            <!-- 견적내기 버튼 -->
-            <div class="calculate">
-                <input type='button' value='견적내기' onclick="calculate()" class="cal_btn">
+            <!-- 천원단위 결제 수량 영역 -->
+            <div class="unit">
+                <span class="unit1">천원단위 결제 수량</span>
+                <span class="unit2"><input type="text" id="output3" class="border_none hide unit3"></span>
             </div>
         </div>
         
-        <!-- 2번 텍스트 -->
-        <div class="container margin_auto margin_between">
-            <p class="numtext">&#9313; 아래 견적을 복사하신후 ▶ 구매하기 버튼위 옵션창에 <U>붙혀넣기</U>와 <U>수량</U>을 입력해주세요</p>
-        </div>
-        <!-- 그 아래 영역 -->
-        <div class="second_area">
-            <div class="price_info">
-                <span class="pi1">
-                    <input type="text" id="option" class="border_none hide output_opt">
-                </span>
-                <span class="btn_price_x">
-                    <span class="btn_set">
-                        <span><input type='button' value='-' class="hide" onclick="subtract()" id="subtract"></span>
-                        <span><input type="text" id="cnt" value="1" class="border_none hide ctn_num"></span>
-                        <span><input type='button' value='+' class="hide" onclick="add()" id="add"></span>
-                    </span>
-                    <span>
-                        <input type="text" id="output" class="border_none hide output_class">
-                    </span>
-                    <span>
-                        <span><input type='button' value='x' class="border_none" onclick="hide()"></span>
-                    </span>
-                </span>
-                
-            </div>
-           
-            
-            
-        </div>
-        <!-- 총 금액 영역 -->
-        <div>
-            <span>총금액</span>
-            <span>(무료배송)</span>
-            <span>+</span>
-            <span><input type="text" id="output2" class="border_none hide"></span>
-        </div>
-        <!-- 천원단위 결제 수량 영역 -->
-        <div>
-            <span>천원단위 결제 수량</span>
-            <span><input type="text" id="output3" class="border_none hide"></span>
-        </div>
     </body>
 </html>
