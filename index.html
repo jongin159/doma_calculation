@@ -39,7 +39,7 @@
             .unit1 {font-size: 20px; float:left;}
             .unit2 {font-size: 20px; float:right;}
             .unit3 {text-align: right; background-color: rgb(33, 44, 64); color: white;font-size: 20px; font-family: 'NanumSquare', sans-serif;}
-            .total_area {width: 860px; border:2px dashed; padding:5px;}
+            .total_area {width: 860px; border:2px dashed; padding:5px; margin: 0 auto;}
             .pok {padding-left: 10px;}
             body {font-family: 'NanumSquare', sans-serif;}
             
@@ -62,6 +62,8 @@
                 var add = document.getElementById('add');
                 var freeship = document.getElementById('freeship');
                 var plus = document.getElementById('plus');
+
+                output3.value = "1"
 
                 if (eval(length.value) < 100 || eval(length.value) > 2400){
                     return
