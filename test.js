@@ -22,14 +22,11 @@ function calculate() {
     }
 
     if (color.options[color.selectedIndex].text == "백색"){
-        option.value = "백색" + "/폭" + width.value + "mmx길이" + length.value + "mm";
-        var int_output = Math.round(eval(length.value) * eval(width.value) * 0.1863);
-        // var comma_output = int_output.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-        var comma_output = int_output.toString();
-        output.value = comma_output + "원";
-        output2.value = output.value;
-        output3.value = Math.floor(eval(length.value) * eval(width.value) * 0.1863 / 1000) + "개";
-        cnt.value = 1;
+        option.value = "백색" + "/폭" + width.value + "mmx길이" + length.value + "mm"
+        output.value = Math.round(eval(length.value) * eval(width.value) * 0.1863) + "원"
+        output2.value = output.value
+        output3.value = Math.floor(eval(length.value) * eval(width.value) * 0.1863 / 1000) + "개"
+        cnt.value = 1
         output.style.visibility = "visible";
         output2.style.visibility = "visible";
         output3.style.visibility = "visible";
@@ -42,14 +39,11 @@ function calculate() {
         plus.style.visibility = "visible";
     }
     else if (color.options[color.selectedIndex].text == "적색"){
-        option.value = "적색" + "/폭" + width.value + "mmx길이" + length.value + "mm";
-        var int_output = Math.round(eval(length.value) * eval(width.value) * 0.177606);
-        // var comma_output = int_output.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-        var comma_output = int_output.toString();
-        output.value = comma_output + "원";
-        output2.value = output.value;
-        output3.value = Math.floor(eval(length.value) * eval(width.value) * 0.177606 / 1000) + "개";
-        cnt.value = 1;
+        option.value = "적색" + "/폭" + width.value + "mmx길이" + length.value + "mm"
+        output.value = Math.round(eval(length.value) * eval(width.value) * 0.177606) + "원"
+        output2.value = output.value
+        output3.value = Math.floor(eval(length.value) * eval(width.value) * 0.177606 / 1000) + "개"
+        cnt.value = 1
         output.style.visibility = "visible";
         output2.style.visibility = "visible";
         output3.style.visibility = "visible";
