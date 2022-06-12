@@ -117,7 +117,7 @@ function hide() {
     output.style.visibility = "hidden"
     output2.style.visibility = "hidden"
     output3.style.visibility = "visible"
-    output3.value = "1234"
+    output3.value = "12345"
     subtract.style.visibility = "hidden"
     cnt.style.visibility = "hidden"
     add.style.visibility = "hidden"
@@ -127,6 +127,3 @@ function hide() {
     plus.style.visibility = "hidden"
 }
 
-function stringNumberToInt(stringNumber){
-    return parseInt(stringNumber.replace(/,/g , ''));
-}
