@@ -113,5 +113,5 @@ function hide() {
 
 
 function stringNumberToInt(stringNumber){
-    return parseInt(stringNumber.replace(/,/g , ''));
+    return stringNumber.replace(/,/g , '')
 }
