@@ -147,7 +147,7 @@
                     } else {
                         //pc
                         alert('pc 접속');
-                        ch.href=('./mobile.css');
+                        ch.href=('./pc.css');
                     }
                 }
             }
@@ -224,19 +224,20 @@
                     <span class="pi1">
                         <input type="text" id="option" class="border_none hide output_opt">
                     </span>
-                    <span class="btn_price_x">
+                    <div class="btn_price_x">
                         <span class="btn_set">
-                            <span><input type='button' value='-' class="hide" onclick="subtract()" id="subtract"></span>
-                            <span><input type="text" id="cnt" value="1" class="border_none hide ctn_num"></span>
-                            <span><input type='button' value='+' class="hide" onclick="add()" id="add"></span>
+                            <span><input type='button' value='-' class="hide sub_btn" onclick="subtract()" id="subtract"></span>
+                            <span><input type="text" id="cnt" value="1" class="border_none hide ctn_num sub_btn"></span>
+                            <span><input type='button' value='+' class="hide sub_btn" onclick="add()" id="add"></span>
                         </span>
-                        <span>
+                        <span class="output_class_upper">
                             <input type="text" id="output" class="border_none hide output_class">
                         </span>
                         <span>
-                            <span><input type='button' value='x' class="border_none" onclick="hide()"></span>
+                            <span><input type='button' value='x' class="border_none x_button" onclick="hide()"></span>
                         </span>
-                    </span>
+                    </div>
+                    
                     
                 </div>
             
