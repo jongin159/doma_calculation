@@ -1,51 +1,8 @@
 <html lang="ko">
     <head>
-        <style>
-            @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
-            .container {display: flex;}
-            .margin_auto {margin: auto;}
-            .colorselect {width: 10%; font-size:1.1em; margin:10px;}
-            .size {width: 10%; font-size:1.1em; margin:10px; padding-top:5px;}
-            .length_width_Box {display: flex; width:100%;}
-            .border_none {border:none}
-            .hide {visibility: hidden;}
-            .numtext {font-size:20px; padding: 5px;}
-            .main_area {background-color: rgb(238, 238, 238); margin:auto; padding:20px;}
-            .second_area {background-color: rgb(238, 238, 238); margin:auto; padding:20px; padding-bottom: 50px;}
-            .selectbox {width:100%; margin: auto; height:30px; border: 1px solid rgb(184, 4, 4);}
-            .opt{padding: 10px; text-align: center;}
-            .length {margin-top:8px;}
-            .inputbox {height: 30px; border: 1px solid rgb(184, 4, 4); margin-left:5px; text-align: right; width:80%;}
-            .length_wrap {float:left; width:50%}
-            .width_wrap {float:right; width:50%}
-            .small_text {font-size:small; opacity: 0.5; padding: 10px;}
-            .calculate {display: flex;
-            flex-direction: column; height:50px; margin-top: 20px; justify-content: center; padding-left: 30%; padding-bottom: 10px; padding-top: 10px;} 
-            .cal_btn {height: 100%; background-color: rgb(3, 199, 91); width:50%; border: 0px; border-radius: 5px; color: white; font-size: 1em;}
-            .margin_between {margin-top:40px;}
-            .price_info {background-color: rgb(241, 241, 241); height:40px; padding: 10px; border: 1px solid darkgray;}
-            .output_opt {background-color: rgb(241, 241, 241); font-size: 1em; font-family: 'NanumSquare', sans-serif; width:60%; height:100%;}
-            .pi1 {width:50%; float: left; height:100%;}
-            .btn_set {margin:0; padding:0; width:10%; height:100%;}
-            .ctn_num {width:30px; text-align: center; background-color: rgb(241, 241, 241); font-family: 'NanumSquare', sans-serif;}
-            .btn_price_x {float:right; height:100%; padding-top: 10px; }
-            .output_class {text-align: right; background-color: rgb(241, 241, 241);font-family: 'NanumSquare', sans-serif;}
-            .cnt_btn {height:100%;}
-            .total_price {background-color: rgb(79, 90, 112); color: white; padding: 20px; height:30px;}
-            .total_price1 {font-size: 20px; float:left;}
-            .total_price2 {font-size: 20px; float:right;}
-            .output3 {background-color: rgb(79, 90, 112); color: white; font-size: 20px; font-family: 'NanumSquare', sans-serif; width: 120px; text-align: right;}
-            .unit {background-color: rgb(33, 44, 64); color: white; padding: 20px; height:30px;}
-            .unit1 {font-size: 20px; float:left;}
-            .unit2 {font-size: 20px; float:right;}
-            .unit3 {text-align: right; background-color: rgb(33, 44, 64); color: white;font-size: 20px; font-family: 'NanumSquare', sans-serif;}
-            .total_area {width: 860px; border:2px dashed; padding:5px; margin: 0 auto;}
-            .pok {padding-left: 10px;}
-            body {font-family: 'NanumSquare', sans-serif;}
-            
-        </style>
+        <link rel='stylesheet' type="text/css" id="changeStyle" href="./pc.css">
         <script>
-function calculate() {
+            function calculate() {
                 
                 var length = document.getElementById('length');
                 var width = document.getElementById('width');
@@ -176,12 +133,30 @@ function calculate() {
                 freeship.style.visibility = "hidden";
                 plus.style.visibility = "hidden";
             }
+
+            function codeAddress() {
+                var filter = "win16|win32|win64|mac|macintel";
+                var ch = document.getElementById('changeStyle');
+
+                if ( navigator.platform ) {
+                    if ( filter.indexOf( navigator.platform.toLowerCase() ) < 0 ) {
+                        //mobile
+                        alert('mobile 접속');
+                        ch.href=('./mobile.css');
+                        
+                    } else {
+                        //pc
+                        alert('pc 접속');
+                        ch.href=('./pc.css');
+                    }
+                }
+            }
         </script>
     </head>
-    <body>
+    <body onload="codeAddress()">
         <div class="total_area">
             <!-- 1번 텍스트 -->
-            <div class="container margin_auto">
+            <div class="margin_auto">
                 <p class="numtext">&#9312; 도마 사이즈를 입력하고 견적내기를 눌러주세요</p>
             </div>
             <!-- 칼라 선택, 사이즈, 견적내기 영역-->
@@ -189,7 +164,7 @@ function calculate() {
                 <!-- 칼라선택 row -->
                 <div class="container">
                     <!-- 칼라 선택 text -->
-                    <span class="colorselect">칼라선택</span>
+                    <div class="colorselect">칼라선택</div>
                     <!-- 칼라 선택 select box -->
                     <select id="color" class="selectbox">
                         <option value="none" class="opt">선택하세요</option>
@@ -200,7 +175,7 @@ function calculate() {
                 <!-- 사이즈 row -->
                 <div class="container">
                     <!-- 사이즈 text -->
-                    <span class="size">사이즈</span>
+                    <div class="size">사이즈</div>
                     <!-- 길이, 폭 영역 -->
                     <span class="length_width_Box">
                         <!-- 길이 영역 -->
