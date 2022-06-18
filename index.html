@@ -18,19 +18,20 @@
                 var plus = document.getElementById('plus');
                 
             
-                if (eval(length.value) < 100 || eval(length.value) > 2400){
+                if (eval(length.value) < 300 || eval(length.value) > 2400){
                     return
                 }
-                if (eval(width.value) < 30 || eval(width.value) > 1200){
+                if (eval(width.value) < 300 || eval(width.value) > 1200){
                     return
                 }
             
                 if (color.options[color.selectedIndex].text == "백색"){
-                    option.value = "백색" + "/폭" + width.value + "mmx길이" + length.value + "mm"
-                    output.value = insertCommas(Math.round(eval(length.value) * eval(width.value) * 0.1863)).toString() + "원"
+                    // option.value = "백색" + "/폭" + width.value + "mmx길이" + length.value + "mm"
+                    option.value = "백색" + "/길이" + length.value + "mmx폭" + width.value + "mm"
+                    output.value = insertCommas(Math.round(eval(length.value) * eval(width.value) * 0.191268)).toString() + "원"
                     // output.value = Math.round(eval(length.value) * eval(width.value) * 0.1863).toString() + "원"
                     output2.value = output.value
-                    output3.value = Math.floor(eval(length.value) * eval(width.value) * 0.1863 / 1000) + "개"
+                    output3.value = Math.floor(eval(length.value) * eval(width.value) * 0.191268 / 1000) + "개"
                     cnt.value = 1
                     output.style.visibility = "visible";
                     output2.style.visibility = "visible";
@@ -44,11 +45,12 @@
                     plus.style.visibility = "visible";
                 }
                 else if (color.options[color.selectedIndex].text == "적색"){
-                    option.value = "적색" + "/폭" + width.value + "mmx길이" + length.value + "mm"
-                    output.value = insertCommas(Math.round(eval(length.value) * eval(width.value) * 0.177606)).toString() + "원"
+                    // option.value = "적색" + "/폭" + width.value + "mmx길이" + length.value + "mm"
+                    option.value = "적색" + "/길이" + length.value + "mmx폭" + width.value + "mm"
+                    output.value = insertCommas(Math.round(eval(length.value) * eval(width.value) * 0.2103948)).toString() + "원"
                     // output.value = Math.round(eval(length.value) * eval(width.value) * 0.177606).toString() + "원"
                     output2.value = output.value
-                    output3.value = Math.floor(eval(length.value) * eval(width.value) * 0.177606 / 1000) + "개"
+                    output3.value = Math.floor(eval(length.value) * eval(width.value) * 0.2103948 / 1000) + "개"
                     cnt.value = 1
                     output.style.visibility = "visible";
                     output2.style.visibility = "visible";
@@ -141,12 +143,12 @@
                 if ( navigator.platform ) {
                     if ( filter.indexOf( navigator.platform.toLowerCase() ) < 0 ) {
                         //mobile
-                        alert('mobile 접속');
+                        // alert('mobile 접속');
                         ch.href=('./mobile.css');
                         
                     } else {
                         //pc
-                        alert('pc 접속');
+                        // alert('pc 접속');
                         ch.href=('./pc.css');
                     }
                 }
@@ -188,7 +190,7 @@
                             </div>
                             <!-- 하단 text -->
                             <div class="small_text">
-                                <span>길이는 100~2400mm 까지 입력할 수 있습니다.</span>
+                                <span>길이는 300~2400mm 까지 입력할 수 있습니다.</span>
                             </div>
                         </div>
                         <!-- 폭 영역 -->
@@ -201,7 +203,7 @@
                             </div>
                             <!-- 하단 text -->
                             <div class="small_text">
-                                <span>폭은 30~1200mm 까지 입력할 수 있습니다.</span>
+                                <span>폭은 300~1200mm 까지 입력할 수 있습니다.</span>
                             </div>
                         </div>
                     <!-- 길이, 폭 영역 마지막-->   
@@ -227,13 +229,13 @@
                     <div class="btn_price_x">
                         <span class="btn_set">
                             <span><input type='button' value='-' class="hide sub_btn" onclick="subtract()" id="subtract"></span>
-                            <span><input type="text" id="cnt" value="1" class="border_none hide ctn_num sub_btn"></span>
+                            <span><input type="text" id="cnt" value="1" class="border_none hide ctn_num"></span>
                             <span><input type='button' value='+' class="hide sub_btn" onclick="add()" id="add"></span>
                         </span>
                         <span class="output_class_upper">
                             <input type="text" id="output" class="border_none hide output_class">
                         </span>
-                        <span>
+                        <span class="x_button_upper">
                             <span><input type='button' value='x' class="border_none x_button" onclick="hide()"></span>
                         </span>
                     </div>
@@ -248,8 +250,11 @@
             <div class="total_price">
                 <span class="total_price1">총금액</span>
                 <span class="total_price2">
-                    <span class="hide" id="freeship">(무료배송)</span>
-                    <span class="hide" id="plus">&nbsp;+</span>
+                    <span class="freeship_plus">
+                        <span class="hide" id="freeship">(무료배송)</span>
+                        <span class="hide" id="plus">+</span>
+                    </span>
+
                     <span><input type="text" id="output2" class="border_none hide output3"></span>
                 </span>
             </div>
