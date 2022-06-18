@@ -24,13 +24,13 @@
             .price_info {background-color: rgb(241, 241, 241); height:100px; padding: 10px; border: 1px solid darkgray;}
             .output_opt {background-color: rgb(241, 241, 241); font-size: 50px; font-family: 'NanumSquare', sans-serif; width:100%; height:100%;}
             .pi1 {width:500px;  height:100%;}
-            .btn_set {margin:0; height:100%; padding-top:20px; width:30%;}
+            .btn_set {margin:0; height:100%; padding-top:20px; width:260px;}
             .ctn_num {width:80px; text-align: center; background-color: rgb(241, 241, 241); font-family: 'NanumSquare', sans-serif; font-size:50px; height:60px; margin-right:20px;}
-            .btn_price_x {height:100%; padding-top: 50px; width:100%; float:right;}
+            .btn_price_x {height:100%; padding-top: 50px; width:100%;}
             .sub_btn {height:60px; width:60px; font-size:50px; margin-right:20px; text-align: center;}
             .output_class_upper {width:50%;}
             .x_button_upper {width:10%;}
-            .output_class {text-align: right; background-color: rgb(241, 241, 241);font-family: 'NanumSquare', sans-serif; font-size:50px; width:480px;}
+            .output_class {text-align: right; background-color: rgb(241, 241, 241);font-family: 'NanumSquare', sans-serif; font-size:50px; width:450px;}
             .x_button {font-size:50px; float:right;}
             .cnt_btn {height:100%;}
             .total_price {background-color: rgb(79, 90, 112); color: white; padding: 20px; height:100px;}
