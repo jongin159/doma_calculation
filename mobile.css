@@ -38,7 +38,8 @@
             .total_price2 {font-size: 50px; padding-top:20px; width:80%;float:right; }
             .freeship_plus {width:40%; margin-left:10%;}
             .output3 {background-color: rgb(79, 90, 112); color: white; font-size: 50px; font-family: 'NanumSquare', sans-serif; text-align: right; width:50%; float:right;}
-            .unit {background-color: rgb(33, 44, 64); color: white; padding: 20px; height:100px;}
+            /* .unit {background-color: rgb(33, 44, 64); color: white; padding: 20px; height:100px;} */
+            .unit {background-color: rgb(255, 255, 255); color: white; padding: 20px; height:100px;}
             .unit1 {font-size: 50px; float:left; padding-top:20px;}
             .unit2 {font-size: 50px; float:right; padding-top:20px;}
             .unit3 {text-align: right; background-color: rgb(33, 44, 64); color: white;font-size: 50px; font-family: 'NanumSquare', sans-serif; width:400px;}
