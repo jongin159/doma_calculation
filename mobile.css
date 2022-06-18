@@ -30,8 +30,8 @@
             .sub_btn {height:60px; width:60px; font-size:50px; margin-right:20px; text-align: center;background-color: rgb(238, 238, 238);}
             .output_class_upper {width:50%;}
             /* .x_button_upper {width:10%;} */
-            .output_class {text-align: right; background-color: rgb(238, 238, 238);font-family: 'NanumSquare', sans-serif; font-size:50px; width:45%;}
-            .x_button {font-size:50px; float:right; width:5%;}
+            .output_class {text-align: right; background-color: rgb(238, 238, 238);font-family: 'NanumSquare', sans-serif; font-size:50px; width:40%;}
+            .x_button {font-size:50px; float:right;}
             .cnt_btn {height:100%;}
             .total_price {background-color: rgb(79, 90, 112); color: white; padding: 20px; height:100px;}
             .total_price1 {font-size: 50px; float:left; padding-top:20px; width:20%;}
