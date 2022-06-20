@@ -145,11 +145,13 @@
                         //mobile
                         // alert('mobile 접속');
                         ch.href=('./mobile.css');
+                        document.getElementById("themeframe").style.height = '1800px';  
                         
                     } else {
                         //pc
                         // alert('pc 접속');
                         ch.href=('./pc.css');
+                        document.getElementById("themeframe").style.height = '800px';  
                     }
                 }
             }
@@ -235,9 +237,7 @@
                         <span class="output_class_upper">
                             <input type="text" id="output" class="border_none hide output_class">
                         </span>
-                        <span class="x_button_upper">
-                            <span><input type='button' value='x' class="border_none x_button" onclick="hide()"></span>
-                        </span>
+                        <span><input type='button' value='x' class="border_none x_button" onclick="hide()"></span>
                     </div>
                     
                     
